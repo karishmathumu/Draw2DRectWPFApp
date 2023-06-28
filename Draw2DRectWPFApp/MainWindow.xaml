@@ -1,0 +1,36 @@
+﻿<Window x:Class="Draw2DRectWPFApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Draw2DRectWPFApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="900" Width="1000">
+    <Window.CommandBindings>
+        <CommandBinding Command="SaveAs" Executed="SaveAsCommand_Executed" />
+    </Window.CommandBindings>
+
+    <Window.InputBindings>
+        <KeyBinding Gesture="Ctrl+S" Command="SaveAs" />
+    </Window.InputBindings>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Command="SaveAs" InputGestureText="Ctrl+S" />
+            </MenuItem>
+        </Menu>
+        <StackPanel Margin="10" Orientation="Horizontal">
+            <Canvas Name="canDraw" Width="479" Height="328"
+                VerticalAlignment="Top" HorizontalAlignment="Left"
+                MouseDown="canDraw_MouseDown">
+                <Image Name="imgOriginal"
+                    HorizontalAlignment="Left" VerticalAlignment="Top" 
+                    Stretch="None" Source="1231961314JKRWXa4.jpg"
+                    Cursor="Cross"/>
+            </Canvas>
+            <Image Name="imgResult" Stretch="None" Margin="10,0,0,0"
+                VerticalAlignment="Top" HorizontalAlignment="Left" />
+        </StackPanel>
+    </DockPanel>
+</Window>
